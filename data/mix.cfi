@@ -1,0 +1,51 @@
+# this is the configuration to model pileup adding one zerobias event 
+  module mix = DataMixingModule
+  {
+ 
+    secsource input = PoolRASource
+     {
+        untracked vstring fileNames =
+        {
+        '/store/mc/2007/6/12/CSA07-Minbias-1911/0000/007D90A2-7C1D-DC11-B793-001560AC4F10.root'
+        }
+        string type = "poisson"
+        double averageNumber = 25
+        int32 minBunch = -1
+        int32 maxBunch = +1
+        int32 seed = 1234567
+      }
+      int32 bunchspace = 25
+      string Label = ""  
+      # Input Selectors/output tags
+      # Ecal:	
+    	InputTag EBrechitCollection = EcalRecHitProducer:EcalRecHitsEB
+    	InputTag EErechitCollection = EcalRecHitProducer:EcalRecHitsEE
+    	InputTag ESrechitCollection = ESRecHitProducer:EcalRecHitsES
+    	string EBRecHitCollectionDM = "EcalRecHitsEB_DM"
+    	string EERecHitCollectionDM = "EcalRecHitsEE_DM"
+    	string ESRecHitCollectionDM = "EcalRecHitsES_DM"
+      # Hcal:
+    	InputTag HBHErechitCollection = HBHERecHitCollection
+    	InputTag HOrechitCollection   = HORecHitCollection
+    	InputTag HFrechitCollection   = HFRecHitCollection
+    	InputTag ZDCrechitCollection  = ZDCRecHitCollection
+    	string HBHERecHitCollectionDM = "HBHERecHitCollection_DM"
+    	string HORecHitCollectionDM   = "HORecHitCollection_DM"
+    	string HFRecHitCollectionDM   = "HFRecHitCollection_DM"
+    	string ZDCRecHitCollectionDM  = "ZDCRecHitCollection_DM"
+      # Muons:
+        InputTag DTdigiCollection         = muonDTDigis 
+        InputTag RPCdigiCollection        = muonRPCDigis 
+        InputTag CSCstripdigiCollection   = muonCSCDigis 
+        InputTag CSCwiredigiCollection    = muonCSCDigis 
+        string DTDigiCollectionDM         = "muonDTDigis_DM"
+        string RPCDigiCollectionDM        = "muonRPCDigis_DM"
+        string CSCStripDigiCollectionDM   = "muonCSCDigis_DM"
+        string CSCWireDigiCollectionDM    = "muonCSCDigis_DM"
+      # Si Strips
+        InputTag SistripdigiCollection    = siStripDigis 
+        string SiStripDigiCollectionDM    = "siStripDigis_DM"
+      # Si Pixels
+        InputTag pixeldigiCollection    = siPixelDigis 
+        string PixelDigiCollectionDM    = "siPixelDigis_DM"
+  }
