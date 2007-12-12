@@ -9,13 +9,16 @@
         '/store/mc/2007/6/12/CSA07-Minbias-1911/0000/007D90A2-7C1D-DC11-B793-001560AC4F10.root'
         }
         string type = "poisson"
-        double averageNumber = 25
-        int32 minBunch = -1
-        int32 maxBunch = +1
         int32 seed = 1234567
-      }
-      int32 bunchspace = 25
-      string Label = ""  
+        PSet nbPileupEvents = {
+            double averageNumber = 25
+        }
+    }
+    int32 bunchspace = 25
+    string Label = ""
+    int32 minBunch = -1
+    int32 maxBunch = +1
+
       # Input Selectors/output tags
       # Ecal:	
     	InputTag EBrechitCollection = EcalRecHitProducer:EcalRecHitsEB
@@ -48,4 +51,4 @@
       # Si Pixels
         InputTag pixeldigiCollection    = siPixelDigis 
         string PixelDigiCollectionDM    = "siPixelDigis_DM"
-  }
+}
