@@ -1,0 +1,24 @@
+#include SiStripNoiseService parameters
+include "CondTools/SiPixel/data/SiPixelGainCalibrationService.cfi"
+
+    module siPixelClusters =  SiPixelClusterProducer {
+         InputTag src = mix:siPixelDigisDM
+#         InputTag src = siPixelDigisDM
+#	 untracked string ClusterMode  = "pixdigi"
+         int32 ChannelThreshold = 2500
+         int32 SeedThreshold    = 3000
+         double ClusterThreshold = 5050
+         untracked bool MissCalibrate   = true
+	 untracked int32 VerbosityLevel = 1		 
+
+	using SiPixelGainCalibrationServiceParameters
+    }
+
+# Uncomment the line below to use the Gain Calibration from DB. 
+# Nota Bene: Only for private DB tests for the moment
+#
+#replace siPixelClusters.UseCalibDataFromDB = true
+
+
+
+
