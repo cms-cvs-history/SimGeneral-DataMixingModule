@@ -21,9 +21,9 @@
       double HF1Weight = 1.0
       double HF2Weight = 1.0
       bool UseHO = true
-      InputTag hbheInput = mix
-      InputTag hoInput = mix
-      InputTag hfInput = mix
+      InputTag hbheInput = mix:HBHERecHitCollectionDM
+      InputTag hoInput = mix:HORecHitCollectionDM
+      InputTag hfInput = mix:HFRecHitCollectionDM
       VInputTag ecalInputs = { mix:EcalRecHitsEBDM, mix:EcalRecHitsEEDM }
       untracked bool AllowMissingInputs = false
    }

@@ -49,30 +49,22 @@ include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 # Also BeamSpot
 include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
-sequence highlevelreco = {#offlineBeamSpot&  recopixelvertexing,
-	                   vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
-sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
+sequence highlevelreco = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
 #emergency sequence wo conversions
-sequence highlevelreco_woConv = {#offlineBeamSpot & recopixelvertexing,
-				 vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
+sequence highlevelreco_woConv = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 
 #
 # "Export" Section
 #
 
 # Default - change: now RS is in the default schedule
-sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS}
+sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco}
 #other possibilities
-sequence reconstruction_plusRS = {reconstruction}
 sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronTestSequence}
-# the added _ is clearly a typo. for the moment I define both the correct and the wrong one!
-sequence reconstruction_plusRS_plus_GSF = {reconstruction_plusGSF}
-sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
 #
 # for completeness
 #
-sequence reconstruction_woRS = {localreco &  globalreco & highlevelreco}
-sequence reconstruction_woRS_woConv = {localreco, globalreco, highlevelreco_woConv} 
+sequence reconstruction_woConv = {localreco, globalreco_plusRS, highlevelreco_woConv} 
 #
 # define a standard candle. please note I am picking up individual
 # modules instead of sequences
