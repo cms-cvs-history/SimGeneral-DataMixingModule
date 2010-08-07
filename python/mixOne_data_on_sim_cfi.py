@@ -11,7 +11,7 @@ hcalSimBlock.hf2.binOfMaximum = 5
 ##################################
 
 
-mixData = cms.EDProducer("DataMixingModule",
+mixData = cms.EDFilter("DataMixingModule",
                    hcalSimBlock,
     input = cms.SecSource("PoolSource",
         nbPileupEvents = cms.PSet(
@@ -134,10 +134,10 @@ mixData = cms.EDProducer("DataMixingModule",
     EBDigiCollectionDM   = cms.string('EBDigiCollectionDM'),
     EEDigiCollectionDM   = cms.string('EEDigiCollectionDM'),
     ESDigiCollectionDM   = cms.string(''),
-    HBHEDigiCollectionDM = cms.string(''),
-    HODigiCollectionDM   = cms.string(''),
-    HFDigiCollectionDM   = cms.string(''),
-    ZDCDigiCollectionDM  = cms.string('')
+    HBHEDigiCollectionDM = cms.string('HBHEDigiCollectionDM'),
+    HODigiCollectionDM   = cms.string('HODigiCollectionDM'),
+    HFDigiCollectionDM   = cms.string('HFDigiCollectionDM'),
+    ZDCDigiCollectionDM  = cms.string('ZDCDigiCollectionDM')
 )
 
 
